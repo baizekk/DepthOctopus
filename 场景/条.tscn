@@ -1,0 +1,264 @@
+[gd_scene load_steps=20 format=3 uid="uid://cri1fp4kmmy7v"]
+
+[ext_resource type="Script" path="res://代码/条.gd" id="1_qvsqb"]
+[ext_resource type="Texture2D" uid="uid://cpa4y8iqe38oo" path="res://素材/Depthsquid/UI/能量条01.png" id="2_ah36c"]
+[ext_resource type="Texture2D" uid="uid://ducwdwuxidocn" path="res://素材/Depthsquid/UI/体力条01.png" id="3_dl2bq"]
+[ext_resource type="Texture2D" uid="uid://kits84io2qg2" path="res://素材/Depthsquid/UI/能量条02.png" id="3_nws3t"]
+[ext_resource type="Texture2D" uid="uid://crc7cmat4ob83" path="res://素材/Depthsquid/UI/体力条02.png" id="4_cna2f"]
+[ext_resource type="Texture2D" uid="uid://qsaqq7a5tksr" path="res://素材/Depthsquid/月亮.png" id="6_6uf8s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh8ms"]
+atlas = ExtResource("6_6uf8s")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Animation" id="Animation_w5fut"]
+resource_name = "1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_8acr8"]
+resource_name = "10"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(288, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ac4h2"]
+resource_name = "2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(32, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_c6kaq"]
+resource_name = "3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_isccs"]
+resource_name = "4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(96, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_kyu67"]
+resource_name = "5"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(128, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_t5qep"]
+resource_name = "6"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(160, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_32mgi"]
+resource_name = "7"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(192, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_5svpp"]
+resource_name = "8"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(224, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_ld4l0"]
+resource_name = "9"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(256, 0, 32, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_lessq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("月亮:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 32, 32)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufpfy"]
+_data = {
+"1": SubResource("Animation_w5fut"),
+"10": SubResource("Animation_8acr8"),
+"2": SubResource("Animation_ac4h2"),
+"3": SubResource("Animation_c6kaq"),
+"4": SubResource("Animation_isccs"),
+"5": SubResource("Animation_kyu67"),
+"6": SubResource("Animation_t5qep"),
+"7": SubResource("Animation_32mgi"),
+"8": SubResource("Animation_5svpp"),
+"9": SubResource("Animation_ld4l0"),
+"RESET": SubResource("Animation_lessq")
+}
+
+[node name="条" type="Control" node_paths=PackedStringArray("能量条", "体力条")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvsqb")
+"能量条" = NodePath("能量条")
+"体力条" = NodePath("体力条")
+
+[node name="能量条" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -642.0
+offset_top = -245.0
+offset_right = -514.0
+offset_bottom = -205.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(5, 5)
+step = 0.0
+value = 100.0
+texture_over = ExtResource("2_ah36c")
+texture_progress = ExtResource("3_nws3t")
+tint_over = Color(1, 1, 1, 0.784314)
+tint_progress = Color(0.5, 0, 0, 1)
+
+[node name="体力条" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -647.0
+offset_top = -157.0
+offset_right = -391.0
+offset_bottom = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(5, 5)
+step = 0.0
+value = 100.0
+fill_mode = 6
+texture_over = ExtResource("3_dl2bq")
+texture_progress = ExtResource("4_cna2f")
+tint_progress = Color(1, 0.2, 0, 1)
+
+[node name="月亮" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -301.0
+offset_top = 104.0
+offset_right = -261.0
+offset_bottom = 144.0
+grow_horizontal = 0
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_sh8ms")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ufpfy")
+}

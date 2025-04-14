@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1e0m8d1w7ij5"]
+
+[ext_resource type="Script" path="res://代码/独白.gd" id="1_8d5mr"]
+[ext_resource type="FontFile" uid="uid://dg6io4v62xqp4" path="res://素材/WenQuanYi Bitmap Song 16px.ttf" id="1_jubxm"]
+
+[node name="独白" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8d5mr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -762.0
+offset_top = -411.0
+offset_right = 762.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jubxm")
+theme_override_font_sizes/font_size = 72
+text = "On a distant continent, there is a race called the Moon Octopus Clan. They are humanoid during the day, but at night, parts of their bodies transform into octopus tentacles, possessing the ability to freely swim in water. However, the power of the moon gradually weakened and the water level dropped. In order to resolve this drought crisis, the Moon Octopus Clan held a blessing ceremony, and finally the moon god responded to the wish by descending a magical conch with the power to summon tides."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -762.0
+offset_top = -411.0
+offset_right = 762.0
+offset_bottom = 411.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_jubxm")
+theme_override_font_sizes/font_size = 72
+text = "在遥远的大陆上，有一个种族叫月章鱼一族。它们在白天是人形的，但到了晚上，它们身体的一部分会变成章鱼触手，拥有在水中自由游泳的能力。然而，月亮的力量逐渐减弱，水位下降。为了化解这场干旱危机，月章鱼一族举行了祈福仪式，最后月神回应了愿望，降下了一只拥有召唤潮汐之力的魔法海螺。"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

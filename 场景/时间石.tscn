@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://drxn1iovxxped"]
+
+[ext_resource type="Script" path="res://代码/时间石.gd" id="1_y7iya"]
+[ext_resource type="Texture2D" uid="uid://yjp0n6bm5oj5" path="res://素材/新建文件夹/时间石.png" id="2_k85v1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2in7l"]
+radius = 7.0
+
+[sub_resource type="Gradient" id="Gradient_a2w34"]
+colors = PackedColorArray(0.984314, 0.984314, 0.984314, 0.392157, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u85x1"]
+gradient = SubResource("Gradient_a2w34")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="时间石" type="Area2D"]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_y7iya")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_k85v1")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2in7l")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_u85x1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

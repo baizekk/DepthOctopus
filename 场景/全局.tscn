@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c32u7b4wmbiwm"]
+
+[ext_resource type="Script" path="res://代码/全局.gd" id="1_vfasd"]
+
+[node name="全局" type="Node2D"]
+script = ExtResource("1_vfasd")

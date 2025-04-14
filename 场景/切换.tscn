@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bj75bbsqeq1xp"]
+
+[ext_resource type="Script" path="res://代码/切换.gd" id="1_5egfb"]
+[ext_resource type="Texture2D" uid="uid://bv0qlwj2b5n0f" path="res://素材/Depthsquid/转场.png" id="2_ajf2u"]
+
+[sub_resource type="Animation" id="Animation_l75b1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4095, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gx4lq"]
+resource_name = "淡入"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-4095, 0), Vector2(-1080, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kmph5"]
+resource_name = "淡出"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-1080, 0), Vector2(1920, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_epoci"]
+_data = {
+"RESET": SubResource("Animation_l75b1"),
+"淡入": SubResource("Animation_gx4lq"),
+"淡出": SubResource("Animation_kmph5")
+}
+
+[node name="切换" type="CanvasLayer" node_paths=PackedStringArray("动画")]
+script = ExtResource("1_5egfb")
+"动画" = NodePath("动画")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4095, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("2_ajf2u")
+centered = false
+
+[node name="动画" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_epoci")
+}

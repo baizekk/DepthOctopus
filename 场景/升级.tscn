@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgywwenldothd"]
+
+[ext_resource type="Script" path="res://代码/升级.gd" id="1_tstsi"]
+[ext_resource type="Texture2D" uid="uid://drw7pr23f5dcb" path="res://素材/Depthsquid/主角2.png" id="2_sgki2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03xm1"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp1x3"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnlt7"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3cu1"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nva6v"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5am0"]
+atlas = ExtResource("2_sgki2")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sxl7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03xm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp1x3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnlt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3cu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nva6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5am0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kivsf"]
+radius = 14.0357
+
+[node name="升级" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_tstsi")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sxl7t")
+autoplay = "default"
+frame_progress = 0.0426895
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kivsf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

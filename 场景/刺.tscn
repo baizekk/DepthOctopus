@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgt8buyiftabj"]
+
+[ext_resource type="Script" path="res://代码/刺.gd" id="1_k36ws"]
+[ext_resource type="Texture2D" uid="uid://byew8x3es5b8r" path="res://素材/Depthsquid/UI/地刺.png" id="2_13gf5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qq0d"]
+size = Vector2(12, 3)
+
+[node name="刺" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_k36ws")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_13gf5")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_8qq0d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

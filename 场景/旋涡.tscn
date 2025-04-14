@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cue5vjet66cxk"]
+
+[ext_resource type="Script" path="res://代码/旋涡.gd" id="1_6o3eo"]
+[ext_resource type="Texture2D" uid="uid://cbg6v8uf4l82k" path="res://素材/新建文件夹/漩涡.png" id="2_qsquj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwlew"]
+radius = 16.0
+
+[node name="旋涡" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_6o3eo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_qsquj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hwlew")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

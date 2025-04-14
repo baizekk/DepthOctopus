@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://4lxgyw0jga7c"]
+
+[ext_resource type="Texture2D" uid="uid://b5mgigwqhvrpv" path="res://素材/Depthsquid/3待机-Sheet.png" id="1_cow8l"]
+[ext_resource type="Script" path="res://代码/升级2.gd" id="1_o0ih3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqk5p"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxsq7"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7h4"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8qvn"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78que"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv8xb"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u82ds"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1c48"]
+atlas = ExtResource("1_cow8l")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk3p7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqk5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxsq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7h4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8qvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78que")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sv8xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u82ds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1c48")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igr8h"]
+radius = 7.07107
+
+[node name="升级2" type="Area2D"]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_o0ih3")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gk3p7")
+autoplay = "default"
+frame_progress = 0.276146
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_igr8h")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbfedkrydkg08"]
+
+[ext_resource type="Script" path="res://代码/能量石.gd" id="1_0v0nn"]
+[ext_resource type="Texture2D" uid="uid://c0524e7mcjdy3" path="res://素材/新建文件夹/未命名 12.png" id="2_0xnmy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crvuf"]
+radius = 8.0
+
+[sub_resource type="Gradient" id="Gradient_kgtri"]
+colors = PackedColorArray(1, 1, 1, 0.392157, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_r0hjo"]
+gradient = SubResource("Gradient_kgtri")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="能量石" type="Area2D"]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("1_0v0nn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0xnmy")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_crvuf")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("GradientTexture2D_r0hjo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,71 @@
+extends 状态节点
+var 冲刺计时 := 0.0
+var 碰撞大小 = RectangleShape2D.new()
+
+func 状态进入() -> void:
+	冲刺计时 = 0.0
+	print("进入小移动")
+	动画.play("小移动")
+	碰撞大小.size = Vector2(8, 8)
+	碰撞.shape = 碰撞大小
+func 状态退出() -> void:
+	quanjv.开始大冲 = false
+	quanjv.力竭 = false
+	冲刺计时 = 0.0
+	
+func 更新(delta : float) -> void:
+	运动()
+	quanjv.体力 -= 5 * delta
+	
+	if quanjv.体力 <= 0:
+		quanjv.力竭 = true
+		quanjv.体力 = 0
+	
+	quanjv.能量 -= 能量消耗 * delta
+	if quanjv.能量 <= 0:
+		quanjv.没蓝 = true
+		quanjv.能量 = 0
+	
+func 物理更新(delta : float) -> void:
+	主角.velocity = 主角.velocity.lerp(Vector2(x*左右方向, y*上下方向), 0.03)
+	if Input.is_action_pressed("冲刺"):
+		冲刺计时 += delta
+		
+	if Input.is_action_just_released("冲刺") and 冲刺计时 <= 0.3 and 冲刺计时 > 0.0:
+		quanjv.体力 -= 10
+		冲刺计时 = 0.0
+		if 左右方向 and 上下方向:
+			主角.velocity += Vector2(左右方向*冲刺速度/1.4, 上下方向*冲刺速度/1.4)
+		else:
+			主角.velocity += Vector2(左右方向*冲刺速度, 上下方向*冲刺速度)
+			
+			
+	
+		
+	
+func 跳转条件() -> String:
+	
+	if not Input.is_action_pressed("跳跃") or quanjv.没蓝:
+		print("移动")
+		return "移动"
+	
+	elif is_zero_approx(左右方向) and is_zero_approx(上下方向) and Input.is_action_pressed("跳跃") and quanjv.没蓝 == false:
+		print("小静止")
+		return "小静止"
+	
+	elif quanjv.力竭 and Input.is_action_pressed("跳跃") and quanjv.没蓝 == false:
+		print("小肥")
+		return "小肥"
+		
+	elif Input.is_action_just_released("冲刺") and 冲刺计时 <= 0.3 and 冲刺计时 > 0.0 and Input.is_action_pressed("跳跃") and quanjv.没蓝 == false:
+		print("小冲刺")
+		return "小冲刺"
+		
+		
+	elif 冲刺计时 > 0.3 and Input.is_action_pressed("跳跃") and quanjv.没蓝 == false:
+		冲刺计时 = 0.0
+		print("小大冲")
+		return "小大冲"
+		
+	else:
+		return ""

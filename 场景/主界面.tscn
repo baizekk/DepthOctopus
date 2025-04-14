@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://dug4320bdl7cq"]
+
+[ext_resource type="Script" path="res://代码/主界面.gd" id="1_lltgh"]
+[ext_resource type="Texture2D" uid="uid://cm3bdptvginpc" path="res://素材/Depthsquid/首图 (8).png" id="2_lpsj1"]
+[ext_resource type="FontFile" uid="uid://dg6io4v62xqp4" path="res://素材/WenQuanYi Bitmap Song 16px.ttf" id="3_m85nr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ftbcn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pe3jj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_15sd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a6720"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vc0uk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt04r"]
+bg_color = Color(0, 0, 0, 0.301961)
+
+[node name="主界面" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lltgh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lpsj1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = 6.0
+offset_right = 319.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ftbcn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_pe3jj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_15sd8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_a6720")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vc0uk")
+
+[node name="文本" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -282.0
+offset_top = 31.0
+offset_right = -38.0
+offset_bottom = 111.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("3_m85nr")
+theme_override_font_sizes/font_size = 72
+text = "language"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 412.0
+offset_top = 311.0
+offset_right = -412.0
+offset_bottom = -311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qt04r")
+
+[node name="英文" type="Button" parent="Panel"]
+layout_mode = 2
+offset_left = 207.0
+offset_top = 169.0
+offset_right = 507.0
+offset_bottom = 289.0
+theme_override_fonts/font = ExtResource("3_m85nr")
+theme_override_font_sizes/font_size = 90
+text = "English"
+
+[node name="中文" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = -60.0
+offset_right = 338.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_m85nr")
+theme_override_font_sizes/font_size = 72
+text = "简体中文"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="文本" to="." method="_on_文本_button_down"]
+[connection signal="button_down" from="Panel/英文" to="." method="_on_英文_button_down"]
+[connection signal="button_down" from="Panel/中文" to="." method="_on_中文_button_down"]
